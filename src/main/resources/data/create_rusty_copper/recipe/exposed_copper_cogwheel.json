@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "create_rusty_copper:exposed_copper_shaft"
+    },
+    {
+      "item": "minecraft:copper_ingot"
+    }
+  ],
+  "result": {
+    "id": "create_rusty_copper:exposed_copper_cogwheel",
+    "count": 1
+  }
+}

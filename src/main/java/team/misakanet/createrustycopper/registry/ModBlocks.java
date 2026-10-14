@@ -1,0 +1,130 @@
+package team.misakanet.createrustycopper.registry;
+
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.content.decoration.encasing.EncasingRegistry;
+import team.misakanet.createrustycopper.CreateRustyCopper;
+import team.misakanet.createrustycopper.content.CopperCogwheelBlock;
+import team.misakanet.createrustycopper.content.CopperShaftBlock;
+import team.misakanet.createrustycopper.content.CopperVariant;
+import team.misakanet.createrustycopper.content.EncasedCopperCogwheelBlock;
+import team.misakanet.createrustycopper.content.EncasedCopperShaftBlock;
+import team.misakanet.createrustycopper.content.WeatheringCopperCogwheelBlock;
+import team.misakanet.createrustycopper.content.WeatheringCopperShaftBlock;
+import team.misakanet.createrustycopper.content.WeatheringEncasedCopperCogwheelBlock;
+import team.misakanet.createrustycopper.content.WeatheringEncasedCopperShaftBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+public final class ModBlocks {
+    public static final DeferredRegister.Blocks BLOCKS =
+            DeferredRegister.createBlocks(CreateRustyCopper.MOD_ID);
+
+    private static final Map<CopperVariant, Components> VARIANTS = new EnumMap<>(CopperVariant.class);
+
+    static {
+        for (CopperVariant variant : CopperVariant.values()) {
+            DeferredBlock<CopperCogwheelBlock> cogwheel = BLOCKS.register(variant.blockId("cogwheel"),
+                    () -> variant.waxed() ? new CopperCogwheelBlock(properties(), false, variant)
+                            : new WeatheringCopperCogwheelBlock(properties(), false, variant));
+            DeferredBlock<CopperCogwheelBlock> largeCogwheel = BLOCKS.register(variant.blockId("large_cogwheel"),
+                    () -> variant.waxed() ? new CopperCogwheelBlock(properties(), true, variant)
+                            : new WeatheringCopperCogwheelBlock(properties(), true, variant));
+            DeferredBlock<CopperShaftBlock> shaft = BLOCKS.register(variant.blockId("shaft"),
+                    () -> variant.waxed() ? new CopperShaftBlock(properties().forceSolidOff(), variant)
+                            : new WeatheringCopperShaftBlock(properties().forceSolidOff(), variant));
+            VARIANTS.put(variant, new Components(cogwheel, largeCogwheel, shaft,
+                    encasedCogwheel(variant, false, "andesite", cogwheel),
+                    encasedCogwheel(variant, true, "andesite", largeCogwheel),
+                    encasedShaft(variant, "andesite", shaft),
+                    encasedCogwheel(variant, false, "brass", cogwheel),
+                    encasedCogwheel(variant, true, "brass", largeCogwheel),
+                    encasedShaft(variant, "brass", shaft)));
+        }
+    }
+
+    private ModBlocks() {
+    }
+
+    private static BlockBehaviour.Properties properties() {
+        return BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.5F, 6.0F)
+                .sound(SoundType.COPPER).noOcclusion();
+    }
+
+    private static DeferredBlock<EncasedCopperCogwheelBlock> encasedCogwheel(CopperVariant variant, boolean large,
+            String casing, DeferredBlock<CopperCogwheelBlock> bare) {
+        Supplier<Block> casingBlock = () -> casing.equals("andesite")
+                ? AllBlocks.ANDESITE_CASING.get() : AllBlocks.BRASS_CASING.get();
+        return BLOCKS.register(variant.blockId(large ? "large_cogwheel" : "cogwheel", casing),
+                () -> variant.waxed() ? new EncasedCopperCogwheelBlock(properties(), large, casingBlock, bare, variant)
+                        : new WeatheringEncasedCopperCogwheelBlock(properties(), large, casingBlock, bare, variant));
+    }
+
+    private static DeferredBlock<EncasedCopperShaftBlock> encasedShaft(CopperVariant variant, String casing,
+            DeferredBlock<CopperShaftBlock> bare) {
+        Supplier<Block> casingBlock = () -> casing.equals("andesite")
+                ? AllBlocks.ANDESITE_CASING.get() : AllBlocks.BRASS_CASING.get();
+        return BLOCKS.register(variant.blockId("shaft", casing),
+                () -> variant.waxed() ? new EncasedCopperShaftBlock(properties(), casingBlock, bare, variant)
+                        : new WeatheringEncasedCopperShaftBlock(properties(), casingBlock, bare, variant));
+    }
+
+    public static Components of(CopperVariant variant) {
+        return VARIANTS.get(variant);
+    }
+
+    public static void registerEncasing() {
+        for (Components components : VARIANTS.values()) {
+            EncasingRegistry.addVariant(components.cogwheel().get(), components.andesiteCogwheel().get());
+            EncasingRegistry.addVariant(components.cogwheel().get(), components.brassCogwheel().get());
+            EncasingRegistry.addVariant(components.largeCogwheel().get(), components.andesiteLargeCogwheel().get());
+            EncasingRegistry.addVariant(components.largeCogwheel().get(), components.brassLargeCogwheel().get());
+            EncasingRegistry.addVariant(components.shaft().get(), components.andesiteShaft().get());
+            EncasingRegistry.addVariant(components.shaft().get(), components.brassShaft().get());
+        }
+    }
+
+    public static void register(IEventBus modEventBus) {
+        BLOCKS.register(modEventBus);
+    }
+
+    public record Components(DeferredBlock<CopperCogwheelBlock> cogwheel,
+            DeferredBlock<CopperCogwheelBlock> largeCogwheel, DeferredBlock<CopperShaftBlock> shaft,
+            DeferredBlock<EncasedCopperCogwheelBlock> andesiteCogwheel,
+            DeferredBlock<EncasedCopperCogwheelBlock> andesiteLargeCogwheel,
+            DeferredBlock<EncasedCopperShaftBlock> andesiteShaft,
+            DeferredBlock<EncasedCopperCogwheelBlock> brassCogwheel,
+            DeferredBlock<EncasedCopperCogwheelBlock> brassLargeCogwheel,
+            DeferredBlock<EncasedCopperShaftBlock> brassShaft) {
+
+        public List<Block> allBlocks() {
+            return List.of(cogwheel.get(), largeCogwheel.get(), shaft.get(), andesiteCogwheel.get(),
+                    andesiteLargeCogwheel.get(), andesiteShaft.get(), brassCogwheel.get(), brassLargeCogwheel.get(),
+                    brassShaft.get());
+        }
+
+        public List<Block> bareBlocks() {
+            return List.of(cogwheel.get(), largeCogwheel.get(), shaft.get());
+        }
+
+        public Stream<Block> encasedCogwheels() {
+            return Stream.of(andesiteCogwheel.get(), andesiteLargeCogwheel.get(), brassCogwheel.get(),
+                    brassLargeCogwheel.get());
+        }
+
+        public Stream<Block> encasedShafts() {
+            return Stream.of(andesiteShaft.get(), brassShaft.get());
+        }
+    }
+}
+

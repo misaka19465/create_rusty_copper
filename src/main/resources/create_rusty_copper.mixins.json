@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "team.misakanet.createrustycopper.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "KineticBlockEntityMixin",
+    "ShaftBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

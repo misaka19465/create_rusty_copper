@@ -1,0 +1,12 @@
+# Credits and Third-Party Licenses
+
+Thank you to the following authors and projects for the models, textures, and foundations used by this project's copper transmission components.
+
+| Project and author | Resources used | Licensing basis |
+| --- | --- | --- |
+| [Create: More Cogwheels](https://modrinth.com/mod/create-more-cogwheels/version/XcbGBG2E), **Nikrecs** | Copper small and large cogwheels, separate model parts, casing resource definitions, and four original copper textures from 1.0.0; this project adds three patina variants | The upstream [MIT license text](src/main/resources/META-INF/licenses/More-Cogwheels-MIT.txt); no separate model or texture license was found within the reviewed sources |
+| [Create: More Transmission](https://github.com/1602335496/Create-More_Transmission/tree/44ee6e5387c18b7529a6498402d25b9cc5ed0655), **sheng_zi** (CurseForge: happy_sheng_zi) | Copper, exposed copper, weathered copper, and oxidized copper shaft models and appearance definitions from 1.0.2 | The release page, source README, and metadata declare [MIT](src/main/resources/META-INF/licenses/More-Transmission-MIT.txt) |
+| [Create](https://github.com/Creators-of-Create/Create), **simibubi / The Create Team / The Creators of Create** | Upstream source of shaft geometry, casing parent models, runtime texture references, and adapted kinetic rendering calculations | Java code is MIT; reused shaft and casing geometry is covered by the [MIT license text](src/main/resources/META-INF/licenses/Create-legacy-MIT.txt) from a pinned historical revision; Create 6.0.10 artwork remains All Rights Reserved |
+| **Mojang Studios / Minecraft** | Vanilla copper and stripped spruce textures referenced through `minecraft:` resource IDs | Owned by their respective rights holders; vanilla PNGs are not bundled with the mod or preview resource pack |
+
+Create: Rusty Copper's original code, documentation, tools, and assets are licensed under the [MIT License](LICENSE). Changes include namespace conversion, casing texture reference adaptation, new exposed, weathered, and oxidized cogwheel textures, and copper kinetic renderers adapted from Create 6.0.10. Waxed blocks reuse the corresponding unwaxed models and textures. Encased shafts and half-shafts reference Create's models at runtime. Imported resources and their derivatives retain the applicable third-party licenses and attribution. The project's MIT license does not relicense Minecraft or Create resources referenced at runtime.

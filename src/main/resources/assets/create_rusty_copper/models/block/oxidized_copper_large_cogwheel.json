@@ -1,0 +1,9 @@
+{
+  "parent": "create_rusty_copper:block/copper_large_cogwheel",
+  "textures": {
+    "body": "create_rusty_copper:block/oxidized_copper_cogwheel",
+    "axis": "create_rusty_copper:block/oxidized_copper_cogwheel_axis",
+    "axis_top": "create_rusty_copper:block/oxidized_copper_axis_top",
+    "particle": "create_rusty_copper:block/oxidized_copper_cogwheel"
+  }
+}
