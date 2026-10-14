@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:waxed_weathered_copper"
+  },
+  "result": {
+    "id": "create_rusty_copper:waxed_weathered_copper_shaft",
+    "count": 8
+  }
+}

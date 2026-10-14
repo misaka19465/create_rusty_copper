@@ -1,0 +1,8 @@
+{
+  "parent": "create:block/shaft_half",
+  "textures": {
+    "0": "create_rusty_copper:block/oxidized_copper_cogwheel_axis",
+    "1": "create_rusty_copper:block/oxidized_copper_axis_top",
+    "particle": "create_rusty_copper:block/oxidized_copper_cogwheel_axis"
+  }
+}

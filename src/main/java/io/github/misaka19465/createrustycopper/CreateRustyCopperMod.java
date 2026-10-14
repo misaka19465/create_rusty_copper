@@ -1,6 +1,8 @@
 package io.github.misaka19465.createrustycopper;
 
 import io.github.misaka19465.createrustycopper.registry.ModBlocks;
+import io.github.misaka19465.createrustycopper.registry.ModBlockEntities;
+import io.github.misaka19465.createrustycopper.registry.ModCreativeTabs;
 import io.github.misaka19465.createrustycopper.registry.ModItems;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -11,11 +13,16 @@ public final class CreateRustyCopperMod {
     public CreateRustyCopperMod(IEventBus modEventBus) {
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModCreativeTabs.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(CreateRustyCopper::init);
+        event.enqueueWork(() -> {
+            CreateRustyCopper.init();
+            ModBlocks.registerEncasing();
+        });
     }
 }
 

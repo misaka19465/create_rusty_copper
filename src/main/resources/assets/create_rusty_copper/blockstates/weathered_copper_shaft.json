@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "create_rusty_copper:block/weathered_copper_shaft",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "create_rusty_copper:block/weathered_copper_shaft"
+    },
+    "axis=z": {
+      "model": "create_rusty_copper:block/weathered_copper_shaft",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

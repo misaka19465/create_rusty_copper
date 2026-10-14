@@ -39,8 +39,16 @@ sourceSets.main.resources {
     exclude '**/.cache/**'
 }
 
+sourceSets {
+    gameTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
 neoForge {
     version = project.neo_version
+    addModdingDependenciesTo sourceSets.gameTest
 
     runs {
         client {
@@ -57,11 +65,17 @@ neoForge {
                     '--output', file('src/generated/resources').absolutePath,
                     '--existing', file('src/main/resources').absolutePath
         }
+        gameTestServer {
+            type = "gameTestServer"
+            gameDirectory = file('build/gametest')
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
     }
 
     mods {
         "${mod_id}" {
             sourceSet sourceSets.main
+            sourceSet sourceSets.gameTest
         }
     }
 }
@@ -69,6 +83,9 @@ neoForge {
 configurations {
     localRuntime
     runtimeClasspath.extendsFrom localRuntime
+    gameTestImplementation.extendsFrom implementation
+    gameTestCompileOnly.extendsFrom compileOnly
+    gameTestRuntimeOnly.extendsFrom localRuntime
 }
 
 dependencies {
@@ -114,6 +131,10 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 tasks.withType(Jar).configureEach {
+    from('LICENSE') {
+        into 'META-INF/licenses'
+        rename { 'Create-Rusty-Copper-MIT.txt' }
+    }
     manifest.attributes([
             'Specification-Title': mod_id,
             'Specification-Vendor': mod_authors,
@@ -125,4 +146,8 @@ tasks.withType(Jar).configureEach {
 }
 
 idea.module.downloadSources = true
+
+tasks.named('check') {
+    dependsOn tasks.named('compileGameTestJava')
+}
 

@@ -1,0 +1,89 @@
+Create: Rusty Copper — third-party appearance notices
+
+Thank you to Nikrecs, sheng_zi, simibubi and the Create team for the
+appearance resources and foundations used by this project.
+
+1. Create: More Cogwheels 1.0.0 (Minecraft 1.21.1 / NeoForge)
+
+Author: Nikrecs
+Imported release: https://modrinth.com/mod/create-more-cogwheels/version/XcbGBG2E
+Published license: https://www.curseforge.com/minecraft/mc-mods/create-more-cogwheels/license
+License: MIT; full published text is in More-Cogwheels-MIT.txt.
+The upstream copyright line contains literal <year> / <copyright holders>
+placeholders. They are retained as published; no copyright year is invented.
+
+Used: copper cogwheel geometry, transforms, UVs, four copper PNGs, shaftless
+partials, casing resource definitions, blockstates and item models (33 source
+files). Changes: namespace conversion, casing material adaptation for Create
+6.0.10, and new exposed/weathered/oxidized copper texture derivatives.
+
+2. Create: More Transmission 1.0.2
+
+Author: sheng_zi (CurseForge account: happy_sheng_zi)
+Source: https://github.com/1602335496/Create-More_Transmission
+Revision: 44ee6e5387c18b7529a6498402d25b9cc5ed0655
+Published license: https://www.curseforge.com/minecraft/mc-mods/create-more-transmission/license
+License: MIT; full published text is in More-Transmission-MIT.txt.
+The README, gradle.properties and public license page explicitly declare MIT.
+The source revision has no standalone LICENSE file; the public license page
+supplies the full permission text with unfilled copyright placeholders.
+
+Used: copper, exposed copper, weathered copper and oxidized copper shaft
+models, blockstates and item models (12 source files). Changes: namespace
+conversion and renaming copper_block_shaft to copper_shaft. No Java code or
+Minecraft PNGs were imported. The shaft geometry also has the upstream Create
+origin and historical MIT notice recorded below.
+
+3. Create — historical MIT model content and runtime resource references
+
+Original historical copyright: Copyright (c) 2019 simibubi
+Project: The Create Team / The Creators of Create
+Source: https://github.com/Creators-of-Create/Create
+Historical MIT revision: 6cd9c9be090b2aece847df6783f9b55b358c5ad6
+Original license: https://github.com/Creators-of-Create/Create/blob/6cd9c9be090b2aece847df6783f9b55b358c5ad6/LICENSE
+License copy: Create-legacy-MIT.txt (original notice and full text).
+
+The shaft model and all eight encased cogwheel shell models used here match
+this MIT revision byte for byte. Their historical MIT versions are the
+licensing basis for reused geometry, including the assembled review models.
+
+This is NOT a statement that all Create 6.0.10 assets are MIT. Its LICENSE.md
+reserves rights to src/main/resources/assets/ and uses MIT for other files.
+Create materials are referenced by resource ID at runtime; no Create PNG
+textures are bundled with this mod or its appearance review pack.
+
+Runtime implementation reference: Create 6.0.10-280, source commit
+ac0c444d9828da3453ae8cc65338e8de063286fb. Copper block classes extend Create's
+shaft and cogwheel APIs. CopperKineticRenderer and CopperKineticVisual adapt
+the large-cog shaft alignment and encased shaft rendering calculations from
+BracketedKineticBlockEntityRenderer, BracketedKineticBlockEntityVisual,
+EncasedCogRenderer and EncasedCogVisual. These Java sources are MIT under
+Create's non-artwork license, with the original Copyright (c) 2019 simibubi
+notice and full MIT terms retained in Create-legacy-MIT.txt.
+
+New encased shaft blockstates reference create:block/encased_shaft/block_andesite
+and block_brass. New copper half-shaft models inherit create:block/shaft_half
+and replace only texture references. These parent models are supplied by Create
+at runtime; their geometry and textures are not copied into this project.
+Waxed variants reuse the corresponding unwaxed appearance resources.
+
+4. Minecraft — runtime texture references
+
+Minecraft and its original materials belong to Mojang Studios and their
+respective rights holders. Copper and stripped spruce textures are referenced
+by minecraft: resource IDs; no Minecraft PNG textures are bundled here.
+
+Scope of the project license
+
+Create: Rusty Copper's original code, documentation, tools and assets are
+licensed under MIT. The full project license is in LICENSE in the source
+repository and Create-Rusty-Copper-MIT.txt alongside these packaged notices.
+Imported resources and their derivatives retain the applicable third-party
+permission, copyright and warranty notices above and in the three accompanying
+third-party MIT files. Attribution alone does not replace the license text.
+Minecraft and Create resources referenced at runtime retain their respective
+licenses; the project's MIT license does not relicense those resources.
+
+See CREDITS.md in the source repository for additional attribution and
+licensing context. Source versions, revisions and changes are listed above;
+the three accompanying third-party MIT files contain their full license texts.
