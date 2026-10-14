@@ -1,0 +1,85 @@
+{
+  "values": {
+    "create_rusty_copper:copper_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:exposed_copper_cogwheel"
+    },
+    "create_rusty_copper:exposed_copper_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:weathered_copper_cogwheel"
+    },
+    "create_rusty_copper:weathered_copper_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:oxidized_copper_cogwheel"
+    },
+    "create_rusty_copper:copper_large_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:exposed_copper_large_cogwheel"
+    },
+    "create_rusty_copper:exposed_copper_large_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:weathered_copper_large_cogwheel"
+    },
+    "create_rusty_copper:weathered_copper_large_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:oxidized_copper_large_cogwheel"
+    },
+    "create_rusty_copper:copper_shaft": {
+      "next_oxidation_stage": "create_rusty_copper:exposed_copper_shaft"
+    },
+    "create_rusty_copper:exposed_copper_shaft": {
+      "next_oxidation_stage": "create_rusty_copper:weathered_copper_shaft"
+    },
+    "create_rusty_copper:weathered_copper_shaft": {
+      "next_oxidation_stage": "create_rusty_copper:oxidized_copper_shaft"
+    },
+    "create_rusty_copper:andesite_encased_copper_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:andesite_encased_exposed_copper_cogwheel"
+    },
+    "create_rusty_copper:andesite_encased_exposed_copper_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:andesite_encased_weathered_copper_cogwheel"
+    },
+    "create_rusty_copper:andesite_encased_weathered_copper_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:andesite_encased_oxidized_copper_cogwheel"
+    },
+    "create_rusty_copper:andesite_encased_copper_large_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:andesite_encased_exposed_copper_large_cogwheel"
+    },
+    "create_rusty_copper:andesite_encased_exposed_copper_large_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:andesite_encased_weathered_copper_large_cogwheel"
+    },
+    "create_rusty_copper:andesite_encased_weathered_copper_large_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:andesite_encased_oxidized_copper_large_cogwheel"
+    },
+    "create_rusty_copper:andesite_encased_copper_shaft": {
+      "next_oxidation_stage": "create_rusty_copper:andesite_encased_exposed_copper_shaft"
+    },
+    "create_rusty_copper:andesite_encased_exposed_copper_shaft": {
+      "next_oxidation_stage": "create_rusty_copper:andesite_encased_weathered_copper_shaft"
+    },
+    "create_rusty_copper:andesite_encased_weathered_copper_shaft": {
+      "next_oxidation_stage": "create_rusty_copper:andesite_encased_oxidized_copper_shaft"
+    },
+    "create_rusty_copper:brass_encased_copper_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:brass_encased_exposed_copper_cogwheel"
+    },
+    "create_rusty_copper:brass_encased_exposed_copper_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:brass_encased_weathered_copper_cogwheel"
+    },
+    "create_rusty_copper:brass_encased_weathered_copper_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:brass_encased_oxidized_copper_cogwheel"
+    },
+    "create_rusty_copper:brass_encased_copper_large_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:brass_encased_exposed_copper_large_cogwheel"
+    },
+    "create_rusty_copper:brass_encased_exposed_copper_large_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:brass_encased_weathered_copper_large_cogwheel"
+    },
+    "create_rusty_copper:brass_encased_weathered_copper_large_cogwheel": {
+      "next_oxidation_stage": "create_rusty_copper:brass_encased_oxidized_copper_large_cogwheel"
+    },
+    "create_rusty_copper:brass_encased_copper_shaft": {
+      "next_oxidation_stage": "create_rusty_copper:brass_encased_exposed_copper_shaft"
+    },
+    "create_rusty_copper:brass_encased_exposed_copper_shaft": {
+      "next_oxidation_stage": "create_rusty_copper:brass_encased_weathered_copper_shaft"
+    },
+    "create_rusty_copper:brass_encased_weathered_copper_shaft": {
+      "next_oxidation_stage": "create_rusty_copper:brass_encased_oxidized_copper_shaft"
+    }
+  }
+}

@@ -30,6 +30,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.WeatheringCopper.WeatherState;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluids;
@@ -186,7 +187,9 @@ public final class CopperKineticsGameTests {
         for (Block block : ModBlocks.of(variant).bareBlocks()) {
             helper.setBlock(pos, axis(block, Direction.Axis.Z).setValue(BlockStateProperties.WATERLOGGED, true));
             helper.assertTrue(helper.getBlockState(pos).getFluidState().getType() == Fluids.WATER, "Must support waterlogging");
-            helper.assertTrue(!helper.getBlockState(pos).isRandomlyTicking(), "Appearance stages must stay fixed");
+            helper.assertTrue(helper.getBlockState(pos).isRandomlyTicking()
+                            == (!variant.waxed() && variant.weatherState() != WeatherState.OXIDIZED),
+                    "Only unwaxed copper before full oxidation must receive random ticks");
             helper.assertTrue(helper.getBlockEntity(pos).getType().isValid(helper.getBlockState(pos)),
                     "Bare block entity must accept this block");
             KineticBlockEntity kinetic = helper.getBlockEntity(pos);

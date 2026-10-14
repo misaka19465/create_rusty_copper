@@ -1,0 +1,23 @@
+package io.github.misaka19465.createrustycopper.content;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.block.WeatheringCopper;
+import net.minecraft.world.level.block.state.BlockState;
+
+public final class WeatheringCopperShaftBlock extends CopperShaftBlock implements WeatheringCopperKineticBlock {
+    public WeatheringCopperShaftBlock(Properties properties, CopperVariant variant) {
+        super(properties, variant);
+    }
+
+    @Override
+    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        changeOverTime(state, level, pos, random);
+    }
+
+    @Override
+    protected boolean isRandomlyTicking(BlockState state) {
+        return getAge() != WeatheringCopper.WeatherState.OXIDIZED;
+    }
+}
