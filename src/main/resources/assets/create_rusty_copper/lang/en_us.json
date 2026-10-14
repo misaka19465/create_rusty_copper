@@ -71,5 +71,17 @@
   "block.create_rusty_copper.waxed_brass_encased_oxidized_copper_large_cogwheel": "Waxed Brass Encased Large Oxidized Copper Cogwheel",
   "block.create_rusty_copper.waxed_oxidized_copper_shaft": "Waxed Oxidized Copper Shaft",
   "block.create_rusty_copper.waxed_andesite_encased_oxidized_copper_shaft": "Waxed Andesite Encased Oxidized Copper Shaft",
-  "block.create_rusty_copper.waxed_brass_encased_oxidized_copper_shaft": "Waxed Brass Encased Oxidized Copper Shaft"
+  "block.create_rusty_copper.waxed_brass_encased_oxidized_copper_shaft": "Waxed Brass Encased Oxidized Copper Shaft",
+  "create_rusty_copper.configuration.title": "%s Configuration",
+  "create_rusty_copper.configuration.rustPenalty": "Rust Penalties",
+  "create_rusty_copper.configuration.rustPenalty.button": "Rust Penalties",
+  "create_rusty_copper.configuration.rustPenalty.tooltip": "Configure extra stress consumption from copper oxidation. Waxing and casing preserve the current penalty. Create's disableStress setting also disables these penalties.",
+  "create_rusty_copper.configuration.enabled": "Enable Rust Penalties",
+  "create_rusty_copper.configuration.enabled.tooltip": "Enable additional stress consumption for exposed, weathered, and oxidized copper components.",
+  "create_rusty_copper.configuration.exposedStressImpact": "Exposed Copper Stress (SU/RPM)",
+  "create_rusty_copper.configuration.exposedStressImpact.tooltip": "Additional stress per component per RPM. Zero disables the exposed-stage penalty.",
+  "create_rusty_copper.configuration.weatheredStressImpact": "Weathered Copper Stress (SU/RPM)",
+  "create_rusty_copper.configuration.weatheredStressImpact.tooltip": "Additional stress per component per RPM. Zero disables the weathered-stage penalty.",
+  "create_rusty_copper.configuration.oxidizedStressImpact": "Oxidized Copper Stress (SU/RPM)",
+  "create_rusty_copper.configuration.oxidizedStressImpact.tooltip": "The very high default overloads ordinary networks and stops all connected machinery. This is a finite stress cost; enough capacity can overcome it. Zero disables the oxidized-stage penalty."
 }

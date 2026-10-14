@@ -29,6 +29,7 @@ public interface CopperKineticBlock {
             // Vanilla item and weathering handlers replace blocks directly. Keep Create's data and connections.
             kinetic.setBlockState(state);
             kinetic.preventSpeedUpdate = 2;
+            CopperStress.refresh(kinetic);
             kinetic.notifyUpdate();
         }
         return true;

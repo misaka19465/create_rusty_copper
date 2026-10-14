@@ -4,6 +4,7 @@
   "package": "io.github.misaka19465.createrustycopper.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "KineticBlockEntityMixin",
     "ShaftBlockMixin"
   ],
   "injectors": {

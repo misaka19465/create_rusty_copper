@@ -71,5 +71,17 @@
   "block.create_rusty_copper.waxed_brass_encased_oxidized_copper_large_cogwheel": "涂蜡黄铜机壳大型氧化的铜齿轮",
   "block.create_rusty_copper.waxed_oxidized_copper_shaft": "涂蜡氧化的铜传动轴",
   "block.create_rusty_copper.waxed_andesite_encased_oxidized_copper_shaft": "涂蜡安山机壳氧化的铜传动轴",
-  "block.create_rusty_copper.waxed_brass_encased_oxidized_copper_shaft": "涂蜡黄铜机壳氧化的铜传动轴"
+  "block.create_rusty_copper.waxed_brass_encased_oxidized_copper_shaft": "涂蜡黄铜机壳氧化的铜传动轴",
+  "create_rusty_copper.configuration.title": "%s 配置",
+  "create_rusty_copper.configuration.rustPenalty": "锈蚀惩罚",
+  "create_rusty_copper.configuration.rustPenalty.button": "锈蚀惩罚",
+  "create_rusty_copper.configuration.rustPenalty.tooltip": "配置铜零件氧化后的额外应力消耗。涂蜡和包壳不会消除已有惩罚。Create 的禁用应力设置也会禁用这些惩罚。",
+  "create_rusty_copper.configuration.enabled": "启用锈蚀惩罚",
+  "create_rusty_copper.configuration.enabled.tooltip": "启用斑驳、锈蚀和氧化铜零件的额外应力消耗。",
+  "create_rusty_copper.configuration.exposedStressImpact": "斑驳铜应力消耗（SU/RPM）",
+  "create_rusty_copper.configuration.exposedStressImpact.tooltip": "每个零件每 RPM 额外消耗的应力。设为 0 可禁用斑驳阶段的惩罚。",
+  "create_rusty_copper.configuration.weatheredStressImpact": "锈蚀铜应力消耗（SU/RPM）",
+  "create_rusty_copper.configuration.weatheredStressImpact.tooltip": "每个零件每 RPM 额外消耗的应力。设为 0 可禁用锈蚀阶段的惩罚。",
+  "create_rusty_copper.configuration.oxidizedStressImpact": "氧化铜应力消耗（SU/RPM）",
+  "create_rusty_copper.configuration.oxidizedStressImpact.tooltip": "默认极高的应力消耗会使普通网络过载，让所有相连机器停转。该消耗为有限数值，足够大的应力容量仍可克服它。设为 0 可禁用氧化阶段的惩罚。"
 }

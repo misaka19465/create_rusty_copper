@@ -9,14 +9,19 @@ import io.github.misaka19465.createrustycopper.registry.ModBlocks;
 import net.minecraft.client.renderer.block.BlockModelShaper;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 @Mod(value = CreateRustyCopper.MOD_ID, dist = Dist.CLIENT)
 public final class CreateRustyCopperClient {
-    public CreateRustyCopperClient(IEventBus modEventBus) {
+    public CreateRustyCopperClient(IEventBus modEventBus, ModContainer container) {
+        container.registerExtensionPoint(IConfigScreenFactory.class,
+                (mod, parent) -> new ConfigurationScreen(mod, parent));
         CopperPartialModels.init();
         modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::registerRenderers);

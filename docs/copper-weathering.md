@@ -44,7 +44,7 @@ Both paths preserve shared block-state properties through vanilla `withPropertie
 
 Create 6.0.10 normally destroys a block entity when its block ID changes, and bare shafts/cogwheels also remove attached brackets. Copper stage and wax changes require retaining those objects.
 
-`CopperKineticBlock.isAppearanceChange` accepts a replacement only when the old and new blocks occupy the same position in their variant's component list and have identical block-state property values. The four copper base classes retain the block entity for those replacements. Their placement hook updates its block state, suppresses unnecessary kinetic propagation, and marks it for synchronization. This preserves brackets, network membership, and rotation during vanilla block replacement.
+`CopperKineticBlock.isAppearanceChange` accepts a replacement only when the old and new blocks occupy the same position in their variant's component list and have identical block-state property values. The four copper base classes retain the block entity for those replacements. Their placement hook updates its block state, refreshes the network's stress cost, suppresses unnecessary kinetic propagation, and marks it for synchronization. This preserves brackets and network membership during vanilla block replacement. Rotation continues while the network has enough stress capacity; fully oxidized components can overload it according to the [rust penalty configuration](rust-penalties.md).
 
 Other component replacements, casing changes, axis changes, and block destruction continue through Create's normal lifecycle.
 

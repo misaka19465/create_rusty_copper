@@ -18,12 +18,16 @@ import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockEn
 import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogwheelBlock;
 import com.simibubi.create.content.schematics.requirement.ItemRequirement;
 import io.github.misaka19465.createrustycopper.content.CopperVariant;
+import io.github.misaka19465.createrustycopper.config.ModServerConfig;
 import io.github.misaka19465.createrustycopper.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.gametest.framework.GameTestGenerator;
+import net.minecraft.gametest.framework.AfterBatch;
+import net.minecraft.gametest.framework.BeforeBatch;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.gametest.framework.TestFunction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -40,6 +44,19 @@ import net.neoforged.neoforge.gametest.GameTestHolder;
 
 @GameTestHolder(CreateRustyCopper.MOD_ID)
 public final class CopperKineticsGameTests {
+    private static boolean previousPenaltyEnabled;
+
+    @BeforeBatch(batch = "copper_kinetics")
+    public static void disableRustPenalties(ServerLevel level) {
+        previousPenaltyEnabled = ModServerConfig.RUST_PENALTY_ENABLED.get();
+        ModServerConfig.RUST_PENALTY_ENABLED.set(false);
+    }
+
+    @AfterBatch(batch = "copper_kinetics")
+    public static void restoreRustPenalties(ServerLevel level) {
+        ModServerConfig.RUST_PENALTY_ENABLED.set(previousPenaltyEnabled);
+    }
+
     @GameTestGenerator
     public static Collection<TestFunction> tests() {
         List<TestFunction> tests = new ArrayList<>();
@@ -193,7 +210,7 @@ public final class CopperKineticsGameTests {
             helper.assertTrue(helper.getBlockEntity(pos).getType().isValid(helper.getBlockState(pos)),
                     "Bare block entity must accept this block");
             KineticBlockEntity kinetic = helper.getBlockEntity(pos);
-            helper.assertTrue(kinetic.calculateStressApplied() == 0, "Copper parts must have no extra stress cost");
+            helper.assertTrue(kinetic.calculateStressApplied() == 0, "Disabled rust penalties must preserve zero stress cost");
             drops(helper, pos, block);
 
             player.setItemInHand(InteractionHand.MAIN_HAND, AllBlocks.METAL_BRACKET.asStack());
