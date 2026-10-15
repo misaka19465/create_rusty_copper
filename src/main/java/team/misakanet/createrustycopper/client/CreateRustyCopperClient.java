@@ -2,7 +2,9 @@ package team.misakanet.createrustycopper.client;
 
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
 import dev.engine_room.flywheel.lib.visualization.SimpleBlockEntityVisualizer;
+import net.createmod.ponder.foundation.PonderIndex;
 import team.misakanet.createrustycopper.CreateRustyCopper;
+import team.misakanet.createrustycopper.client.ponder.RustyCopperPonderPlugin;
 import team.misakanet.createrustycopper.content.CopperVariant;
 import team.misakanet.createrustycopper.registry.ModBlockEntities;
 import team.misakanet.createrustycopper.registry.ModBlocks;
@@ -29,6 +31,7 @@ public final class CreateRustyCopperClient {
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
+        PonderIndex.addPlugin(new RustyCopperPonderPlugin());
         event.enqueueWork(() -> {
             SimpleBlockEntityVisualizer.builder(ModBlockEntities.BARE.get()).factory(CopperKineticVisual::new)
                     .skipVanillaRender(blockEntity -> false).apply();

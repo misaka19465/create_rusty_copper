@@ -83,5 +83,22 @@
   "create_rusty_copper.configuration.weatheredStressImpact": "Weathered Copper Stress (SU/RPM)",
   "create_rusty_copper.configuration.weatheredStressImpact.tooltip": "Additional stress per component per RPM. Zero disables the weathered-stage penalty.",
   "create_rusty_copper.configuration.oxidizedStressImpact": "Oxidized Copper Stress (SU/RPM)",
-  "create_rusty_copper.configuration.oxidizedStressImpact.tooltip": "The very high default overloads ordinary networks and stops all connected machinery. This is a finite stress cost; enough capacity can overcome it. Zero disables the oxidized-stage penalty."
+  "create_rusty_copper.configuration.oxidizedStressImpact.tooltip": "The very high default overloads ordinary networks and stops all connected machinery. This is a finite stress cost; enough capacity can overcome it. Zero disables the oxidized-stage penalty.",
+  "create_rusty_copper.ponder.copper_shaft.header": "Relaying rotation with Copper Shafts",
+  "create_rusty_copper.ponder.copper_shaft.text_1": "Copper Shafts relay rotation in a straight line.",
+  "create_rusty_copper.ponder.copper_shaft_casing.header": "Encasing Copper Shafts",
+  "create_rusty_copper.ponder.copper_shaft_casing.text_1": "Brass or Andesite Casing can be used to decorate Copper Shafts.",
+  "create_rusty_copper.ponder.copper_shaft_weathering.header": "Oxidation and stress",
+  "create_rusty_copper.ponder.copper_shaft_weathering.text_1": "Unwaxed Copper Shafts oxidize over time through four stages.",
+  "create_rusty_copper.ponder.copper_shaft_weathering.text_2": "By default, each later oxidation stage consumes more stress capacity.",
+  "create_rusty_copper.ponder.copper_shaft_weathering.text_3": "Fully oxidized shafts can overstress the whole connected network and stop it.",
+  "create_rusty_copper.ponder.copper_shaft_weathering.text_4": "The result depends on the server's rust penalty settings and the network's stress capacity.",
+  "create_rusty_copper.ponder.copper_shaft_weathering.text_5": "Casing does not prevent oxidation or remove its stress cost.",
+  "create_rusty_copper.ponder.copper_shaft_maintenance.header": "Scraping and waxing Copper Shafts",
+  "create_rusty_copper.ponder.copper_shaft_maintenance.text_1": "Right-click with an Axe to scrape off one oxidation stage at a time.",
+  "create_rusty_copper.ponder.copper_shaft_maintenance.text_2": "Honeycomb waxes copper at its current stage and prevents further oxidation.",
+  "create_rusty_copper.ponder.copper_shaft_maintenance.text_3": "Wax preserves existing oxidation and its stress cost.",
+  "create_rusty_copper.ponder.copper_shaft_maintenance.text_4": "On waxed copper, the first Axe use removes only the wax.",
+  "create_rusty_copper.ponder.copper_shaft_maintenance.text_5": "Use the Axe again to remove the next oxidation stage.",
+  "create_rusty_copper.ponder.copper_shaft_maintenance.text_6": "Scrape first, then wax to protect clean copper without a rust penalty."
 }
