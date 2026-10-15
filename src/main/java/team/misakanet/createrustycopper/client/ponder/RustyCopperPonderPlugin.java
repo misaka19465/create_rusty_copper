@@ -29,5 +29,26 @@ public final class RustyCopperPonderPlugin implements PonderPlugin {
                 .addStoryBoard(encasing, CopperShaftScenes::encasing)
                 .addStoryBoard(relay, CopperShaftScenes::weathering)
                 .addStoryBoard(relay, CopperShaftScenes::maintenance);
+
+        var smallCogwheels = Arrays.stream(CopperVariant.values())
+                .map(variant -> ModBlocks.of(variant).cogwheel().getId()).toList();
+        var largeCogwheels = Arrays.stream(CopperVariant.values())
+                .map(variant -> ModBlocks.of(variant).largeCogwheel().getId()).toList();
+        ResourceLocation small = ResourceLocation.fromNamespaceAndPath("create", "cog/small");
+        ResourceLocation large = ResourceLocation.fromNamespaceAndPath("create", "cog/large");
+        ResourceLocation speedup = ResourceLocation.fromNamespaceAndPath("create", "cog/speedup");
+        ResourceLocation cogEncasing = ResourceLocation.fromNamespaceAndPath("create", "cog/encasing");
+        helper.forComponents(smallCogwheels)
+                .addStoryBoard(small, CopperCogwheelScenes::smallRelay, AllCreatePonderTags.KINETIC_RELAYS)
+                .addStoryBoard(speedup, CopperCogwheelScenes::smallSpeedup)
+                .addStoryBoard(cogEncasing, CopperCogwheelScenes::smallEncasing)
+                .addStoryBoard(speedup, CopperCogwheelScenes::smallWeathering)
+                .addStoryBoard(speedup, CopperCogwheelScenes::smallMaintenance);
+        helper.forComponents(largeCogwheels)
+                .addStoryBoard(speedup, CopperCogwheelScenes::largeSpeedup)
+                .addStoryBoard(large, CopperCogwheelScenes::largeRelay, AllCreatePonderTags.KINETIC_RELAYS)
+                .addStoryBoard(cogEncasing, CopperCogwheelScenes::largeEncasing)
+                .addStoryBoard(speedup, CopperCogwheelScenes::largeWeathering)
+                .addStoryBoard(speedup, CopperCogwheelScenes::largeMaintenance);
     }
 }
