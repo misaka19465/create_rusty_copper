@@ -1,0 +1,7 @@
+{
+  "parent": "create:block/gearbox/item_vertical",
+  "textures": {
+    "0": "create_rusty_copper:block/exposed_copper_cogwheel_axis",
+    "1": "create_rusty_copper:block/exposed_copper_axis_top"
+  }
+}

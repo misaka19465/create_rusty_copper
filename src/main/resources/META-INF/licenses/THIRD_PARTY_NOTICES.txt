@@ -67,6 +67,13 @@ and replace only texture references. These parent models are supplied by Create
 at runtime; their geometry and textures are not copied into this project.
 Waxed variants reuse the corresponding unwaxed appearance resources.
 
+Copper gearbox appearance resources inherit create:block/gearbox/block,
+create:block/gearbox/item and create:block/gearbox/item_vertical at runtime.
+Only item shaft texture slots are overridden with existing copper cogwheel
+axis and axis-top textures, including this project's patina derivatives.
+Rotating shaft appearance reuses the existing copper half-shaft resources.
+No Create gearbox geometry or PNGs are copied into the mod.
+
 4. Minecraft — runtime texture references
 
 Minecraft and its original materials belong to Mojang Studios and their
